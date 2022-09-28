@@ -1,0 +1,72 @@
+About Project:-
+I want to sell T-shirts online,keep track of all customers and oreders.I also want to add new products and keep a check on stock.
+
+File Structure:-
+root
+    -config
+    -controllers
+    -middlewares
+    -models
+    -routes
+    -seeds
+    -utils
+    -.gitignore
+    -.env
+    -app.js/index.js
+
+
+--------
+ecomm App --------->models--------User --> name
+                                           email
+                                           password
+                                           photo
+                                           {id,secureurl}
+                                           role
+                                           createdAt
+
+          --------->models--------Product---> name
+                                              price
+                                              description
+                                              photos[]
+                                              category
+                                              brand
+                                              stock
+                                              ratings
+                                              numOfReviews
+                                              reviews[user,name,rating,comment]
+                                              user
+                                              createdAt
+
+        ----------->models----------Order---->  shipping Info {phoneInfo,Address,city,postalcode,country}
+                                                user
+                                                paymentInformation{}
+                                                taxAmount
+                                                ShippingAmount
+                                                totalAmount
+                                                orderStatus
+                                                deliveredAt
+                                                -------------
+                                                orderItems:[{}]
+                                                name
+                                                quantity
+                                                image[0]
+                                                price
+                                                product
+
+
+----------------
+How forget password works?
+:- agar hum password bhul jaate hai to hum req krenge hey, i am forget my password,apna email denge aur kahenge ki
+send me the instruction ,how can i reset my password.
+-ab backend me jayenge aur check krenge ki user exist krta h ki nhi
+-agar user exist krta hai to we simply create a method that is -tokenGen(),ye tokenGen() method token create karega
+-ab backend me jo token generate hua hai, wo databaseko aur frontend ko send krenge
+-ab user usi token ko aur token ke saath hi new password ko send krega backend me, sabse pahle hum token ki expiry check krenge
+-if the expiry of token is still valid then,hum compare karenge jo frontend se token aa rha hai wo aur  jo database me token hai wo dono same hai ki nhi  
+-agar same hai to new password set ho jayega 
+
+Note:- user ko verify krne ke liye yahi step follow krte hai
+
+-------------------------------------------------
+
+
